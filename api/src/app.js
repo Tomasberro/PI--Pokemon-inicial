@@ -22,8 +22,10 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use('/', routes);
-
+server.use('/', routes);// va /api aca ?
+server.get('/', (req, res) => {
+  res.send('prueba')
+})
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   const status = err.status || 500;
