@@ -1,55 +1,81 @@
 'use strict';
 const { Router } = require('express');
-const { Pokemon, Tipo } = require('../db')
-const {getApi, getBdinfo, getAllinfo} = require('./utils')
+const { Pokemon, Type } = require('../db')
+const { getApi, getBdinfo } = require('./utils')
 const router = Router();// poner express.Router()
 
 
 const pksTotal = async () => {
-  const ApiInfo= await getApi();
+  const ApiInfo = await getApi();
   const BdInfo = await getBdinfo();
-  const infoTotal = ApiInfo.concat(BdInfo);
+  // console.log(BdInfo)
+  const dataValue = BdInfo[0].dataValues;
+  // console.log(dataValue)
+  const infoTotal = ApiInfo.concat(dataValue)
   return infoTotal;
 }
 
 router.get('/', async (req, res) => {
   const name1 = req.query.name;
-  const pokemonsRuta = await pksTotal();
-  
-  // console.log(pokemonsRuta);
-  if(name1){
-    let pksName =  pokemonsRuta.filter(el => el.name.toLowerCase().includes(name1.toLowerCase()));
-    // console.log(name)
-    // console.log(pksName)
-    pksName.length? res.status(200).send(pksName): res.status(404).send('Pokemon no encontrado');
-  }else{
-    res.status(200).send(pokemonsRuta);
-  }
-  })
+  try {
+    const pokemonsRuta = await pksTotal();// probar bd comandos gabi
 
-  router.get('/:idPokemon', (req, res) => {
-    const {id} = req.params;
-    const pokemonsRuta = await pksTotal();
-    if(id){
-      
+    console.log(pokemonsRuta);
+    if (name1) {
+      // console.log('entre')
+      let pksName =  pokemonsRuta.filter(el => {
+        // console.log(el)
+        // if(el.dataValues.owndb){
+        //   el.dataValues.name.toLowerCase().includes(name1.toLowerCase())
+        // }
+       return el.name.toLowerCase() == name1.toLowerCase()});
+      // console.log(name) filtrar propiedades de objeto
+      console.log(pksName)
+      let resto = pksName.map(elem => {
+        return {
+          name: elem.name,
+          image: elem.image,
+          types: elem.types.map(el => el)
+        }
+      })
+      // console.log(resto)
+      resto.length ? res.status(200).send(resto) : res.status(404).send('Pokemon no encontrado');
+    } else {
+      res.status(200).send(pokemonsRuta);
     }
-    res.send('soy el get de pokemons')
-  })
+  } catch (error) { console.log(error) }
+})
 
-  router.post('/', async (req, res) => {
-    let {
-      name,
-      id,
-      image,
-      tipo,
-      hp,
-      attack,
-      defense,
-      speed,
-      height,
-      weight,
-      owndb
-    } = req.body;
+router.get('/:id', async (req, res) => {
+  const id = req.params.id;
+  try {
+    const pokemonsRuta = await pksTotal();
+
+    // let pokemonId= await Pokemon.findByPk(id);
+    // return res.json(pokemonId);}
+    if (id) {
+      let pokemonId = pokemonsRuta.filter(elem => elem['id'] == id) //parsear y probar json en send
+      pokemonId.length ? res.status(200).json(pokemonId) : res.status(404).send('Pokemon no encontrado');
+    }
+  }
+  catch (error) { console.log(error) }
+})
+
+router.post('/', async (req, res) => {
+  let {
+    name,
+    id,
+    image,
+    // types,
+    hp,
+    attack,
+    defense,
+    speed,
+    height,
+    weight,
+    owndb
+  } = req.body;
+  try {
     const pokemonCreated = await Pokemon.create({
       name,
       id,
@@ -62,35 +88,18 @@ router.get('/', async (req, res) => {
       weight,
       owndb
     });
-    let tipoDb = Tipo.findAll({
-      where : {name: tipo}
+    let tipoDb = await Type.findAll({
+      where: { name: req.body.types }
     })
-    pokemonCreated.addTipo(tipoDb);
+    console.log(req.body.types)
+    console.log(tipoDb)
+    pokemonCreated.addType(tipoDb);
     res.send('soy el post de pokemons')
-  })
+  }
+  catch (error) { console.log(error) }
+})
 
-//   console.log(arrayUrl)
-//   const getApi2= async () => {
-//       for (let i=0; i<arrayUrl.length ; i++){
-//           const subreq = await axios.get(arrayUrl[i])
-//           const subreq2= await subreq.data
-//           console.log(subreq2)
-//           const datatotal= subreq2.map(elem => {
-//           const obj= {
-//               name: elem.name,
-//               types: elem.types.map( el => el.type.name),
-//               image: async () => {
-//                   const urlimage= elem.sprites.back_default;
-//                   const imagetraida= await axios.get(urlimage)
-//                   return imagetraida;
-//               }
-//           }
-//           return obj;
-//       })
-//       return datatotal;
-//       }
-  
-//   }
+
 
 // const info= getApi()
 // console.log(info)
