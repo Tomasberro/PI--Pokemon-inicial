@@ -1,17 +1,20 @@
 import React from 'react';
 import './Paginado.module.css';
 
-export default function Paginado({ pokemonsPage, paginado, allPokemons }) {
-    let numbers = [];
-    for (let i = 0; i <= Math.ceil(allPokemons / pokemonsPage); i++) {
-        numbers.push(i)
+export default function Paginado({ cardsxPage, paginado, allPokemons }) {
+    const numbers = [];
+    // console.log(cardsxPage)
+    for (let i = 0; i <= Math.ceil(allPokemons / cardsxPage); i++) {
+        numbers.push(i+1)
 
     }
+    // console.log(numbers)
     return (
-        <nav >
+        <nav className='paginacion'>
             <ul> {numbers?.map(number => {
-                <a onClick={() => paginado(number)}>{number}</a>
-
+            // console.log(paginado(number))
+             return(  <a class="active" onClick={() => paginado(number)}>{number}</a>
+             )
             })
             }
             </ul>

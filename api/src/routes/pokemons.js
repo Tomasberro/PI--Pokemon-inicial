@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
   try {
     const pokemonsRuta = await pksTotal();// probar bd comandos gabi
 
-    console.log(pokemonsRuta);
+    // console.log(pokemonsRuta);
     if (name1) {
       // console.log('entre')
       let pksName =  pokemonsRuta.filter(el => {
@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
         // }
        return el.name.toLowerCase() == name1.toLowerCase()});
       // console.log(name) filtrar propiedades de objeto
-      console.log(pksName)
+      // console.log(pksName)
       let resto = pksName.map(elem => {
         return {
           name: elem.name,
@@ -91,8 +91,8 @@ router.post('/', async (req, res) => {
     let tipoDb = await Type.findAll({
       where: { name: req.body.types }
     })
-    console.log(req.body.types)
-    console.log(tipoDb)
+    // console.log(req.body.types)
+    // console.log(tipoDb)
     pokemonCreated.addType(tipoDb);
     res.send('soy el post de pokemons')
   }
