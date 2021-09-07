@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_POKEMONS, POKEMONS_CREATED, ORDER_BY_NAME, ORDER_BY_POWER, GET_POKEMONS_NAME } from './actionsTypes';
+import { GET_POKEMONS, POKEMONS_CREATED, ORDER_BY_NAME, ORDER_BY_POWER, GET_POKEMONS_NAME, GET_POKEMONS_ID } from './actionsTypes';
 
 export function getPokemons (){
     return async function (dispatch){
@@ -38,5 +38,17 @@ export function getPokemonsName (payload){
         type:  GET_POKEMONS_NAME,  
         payload: response.data
     })
+}
+}
+
+export function getPokemonsId (payload){
+    return async function (dispatch){
+   try{ let response = await axios.get('http://localhost:3001/pokemons/' + payload);
+//    console.log(response)
+    return dispatch ({
+        type:  GET_POKEMONS_ID,  
+        payload: response.data
+    })
+}catch(error){console.log(error)}
 }
 }

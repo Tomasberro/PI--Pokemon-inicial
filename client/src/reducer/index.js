@@ -1,8 +1,9 @@
-import { GET_POKEMONS, POKEMONS_CREATED, ORDER_BY_NAME, ORDER_BY_POWER, GET_POKEMONS_NAME } from "../actions/actionsTypes";
+import { GET_POKEMONS, POKEMONS_CREATED, ORDER_BY_NAME, ORDER_BY_POWER, GET_POKEMONS_NAME, GET_POKEMONS_ID } from "../actions/actionsTypes";
 
 var initialState = {
     pokemons: [],
-    filtrados: []
+    filtrados: [],
+    detail: []
 }
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -71,6 +72,12 @@ const rootReducer = (state = initialState, action) => {
                             ...state,
                             pokemons: action.payload,
                         }
+                    case GET_POKEMONS_ID:
+              
+                          return {
+                              ...state,
+                              detail: action.payload,
+                          }
 
         default: return state
     }

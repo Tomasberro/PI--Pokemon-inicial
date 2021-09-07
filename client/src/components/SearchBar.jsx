@@ -11,10 +11,11 @@ function handleInputChange(e){
     e.preventDefault()
   
     setName(e.target.value)
-   console.log(name)
+ 
 }
 function handleSubmit(e) {
     e.preventDefault()
+    console.log(name)
     dispatch(getPokemonsName(name))
     setName('')
   }
@@ -26,7 +27,7 @@ return (
         onChange= {handleInputChange}
         />
     <button type='submit' onClick={handleSubmit}>Buscar</button>
-        
+ 
     </div>
 )
 
