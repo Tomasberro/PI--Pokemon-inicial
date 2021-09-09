@@ -1,9 +1,10 @@
-import { GET_POKEMONS, POKEMONS_CREATED, ORDER_BY_NAME, ORDER_BY_POWER, GET_POKEMONS_NAME, GET_POKEMONS_ID } from "../actions/actionsTypes";
+import { GET_POKEMONS, POKEMONS_CREATED, ORDER_BY_NAME, ORDER_BY_POWER, GET_POKEMONS_NAME, GET_POKEMONS_ID, POST_POKEMONS, GET_TYPES, POKEMONS_TYPES_FILTER } from "../actions/actionsTypes";
 
 var initialState = {
     pokemons: [],
     filtrados: [],
-    detail: []
+    detail: [],
+    types: []
 }
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -78,6 +79,28 @@ const rootReducer = (state = initialState, action) => {
                               ...state,
                               detail: action.payload,
                           }
+                          case POST_POKEMONS:
+                              return {
+                                  ...state
+                              }
+                              case GET_TYPES:
+                                  return{
+                                    ...state,
+                                    types: action.payload
+                                  }
+                            case POKEMONS_TYPES_FILTER:
+                           let pokemonsAllTypes = state.filtrados;
+               
+                                let pokesFiltrTypes= action.payload === 'All'? pokemonsAllTypes: pokemonsAllTypes.filter(el =>  
+
+                         el.owndb? el.types.map(el => el.name).includes(action.payload)
+                                        : 
+                                        el.types.includes(action.payload))
+                                    
+                                return {
+                                    ...state,
+                                    pokemons: pokesFiltrTypes
+                                }    
 
         default: return state
     }

@@ -9,9 +9,10 @@ const pksTotal = async () => {
   const ApiInfo = await getApi();
   const BdInfo = await getBdinfo();
   // console.log(BdInfo)
-  const dataValue = BdInfo[0].dataValues;
+  // const dataValue = BdInfo[0].dataValues;
   // console.log(dataValue)
-  const infoTotal = ApiInfo.concat(dataValue)
+  const infoTotal = [...ApiInfo, ...BdInfo]
+  // console.log(infoTotal)
   return infoTotal;
 }
 
@@ -66,7 +67,7 @@ router.post('/', async (req, res) => {
     name,
     id,
     image,
-    // types,
+    types,
     hp,
     attack,
     defense,
@@ -89,7 +90,7 @@ router.post('/', async (req, res) => {
       owndb
     });
     let tipoDb = await Type.findAll({
-      where: { name: req.body.types }
+      where: { name: types }
     })
     // console.log(req.body.types)
     // console.log(tipoDb)

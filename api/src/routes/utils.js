@@ -45,7 +45,7 @@ module.exports = {
     getBdinfo: async () => {
         return await Pokemon.findAll({//traeme todos los pokemons
             include: {
-                raw: true,
+                // raw: true, formato json
                 model: Type,//incluime los tipos mediante el name
                 attributes: ['name'],
                 through: {
