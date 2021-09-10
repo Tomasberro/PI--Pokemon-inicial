@@ -94,7 +94,9 @@ router.post('/', async (req, res) => {
     })
     // console.log(req.body.types)
     // console.log(tipoDb)
+  
     pokemonCreated.addType(tipoDb);
+   
     res.send('soy el post de pokemons')
   }
   catch (error) { console.log(error) }

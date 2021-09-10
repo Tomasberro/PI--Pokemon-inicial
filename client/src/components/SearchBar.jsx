@@ -3,6 +3,7 @@ import {useState } from 'react';
 import {  useDispatch } from 'react-redux';
 import { getPokemonsName } from '../actions';
 
+
 export default function SearchBar() {
 const [name, setName] = useState('');
 const dispatch = useDispatch();
@@ -27,8 +28,9 @@ return (
         onChange= {handleInputChange}
         />
     <button type='submit' onClick={handleSubmit}>Buscar</button>
- 
+   
     </div>
+     
 )
 
 

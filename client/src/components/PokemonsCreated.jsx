@@ -5,9 +5,12 @@ import { Link, useHistory } from 'react-router-dom';
 import { getTypes, postPokemons } from '../actions';
 
 
+
+
 export default function PokemonsCreated() {
     const dispatch = useDispatch();
     const history = useHistory();
+    const [errors, setErrors]= useState({});
     const types = useSelector((state) => state.types)
     // console.log(types)
     const [input, setInput] = useState({
@@ -19,17 +22,44 @@ export default function PokemonsCreated() {
         defense: "",
         speed: "",
         height: "",
-        weight: ""
+        weight: "",
+        // errors: {
+        //   name: '',
+        //   image: '',
+
+        // // },
+       disabled: true
     })
+    function validate(input) {
+      let errors = {};
+      if (!input.name) {
+        errors.name = 'Nombre es requerido';
+      } else if (/[A-Z]/.test(input.name) || /[^A-Za-z0-9_]/.test(input.name) || /[0-9]/.test(input.name)) {
+        errors.name = 'Nombre invalido, solo minusculas';
+      }
+     else if (!input.image) {
+        errors.image = 'Imagen es requerida';
+      }
+      return errors;
+    };
     useEffect(() => {
         dispatch(getTypes())
     }, []);
 function onInputChange(e){
-    setInput({
-        ...input,
-        [e.target.name]: e.target.value
-    })
-}
+  var objErrors = validate({
+    ...input,
+    [e.target.name]: e.target.value
+  })
+  // console.log(objErrors)
+  setErrors(objErrors);
+  setInput({
+    ...input,
+    [e.target.name]: e.target.value,
+    disabled: errors.name? true: false
+})
+
+  }
+
 function handleCheck(e){
   if(e.target.checked){
     setInput({
@@ -51,7 +81,8 @@ function handleSubmit(e){
         defense: "",
         speed: "",
         height: "",
-        weight: ""
+        weight: "",
+        disabled:true
     })
     history.push('/home')
 }
@@ -68,6 +99,9 @@ function handleSubmit(e){
   type="text"//ver image type
 onChange={onInputChange}
   value={input.image}/>
+        {errors.image && (
+      <p className="danger">{errors.image}</p>
+    )}
         </div>
         <div>
       
@@ -77,6 +111,9 @@ onChange={onInputChange}
       type="text"
     onChange={onInputChange}
       value={input.name}/>
+        {errors.name && (
+      <p className="danger">{errors.name}</p>
+    )}
             </div>
         {/* {/*name deberia ser to lower case!! Toni me ordena mal por numero asinc*/}
   
@@ -86,7 +123,7 @@ onChange={onInputChange}
       name="hp" 
       type="number"
       min="0"
-      max="100"
+      max="150"
     onChange={onInputChange}
       value={input.hp}/>
             </div>
@@ -95,6 +132,8 @@ onChange={onInputChange}
       <input 
       name="attack" 
       type="number"
+      min="0"
+      max="150"
     onChange={onInputChange}
       value={input.attack}/>
             </div>
@@ -103,6 +142,8 @@ onChange={onInputChange}
       <input 
       name="defense" 
       type="number"
+      min="0"
+      max="150"
     onChange={onInputChange}
       value={input.defense}/>
             </div>
@@ -111,6 +152,8 @@ onChange={onInputChange}
       <input 
       name="speed" 
       type="number"
+      min="0"
+      max="150"
     onChange={onInputChange}
       value={input.speed}/>
             </div>
@@ -119,6 +162,8 @@ onChange={onInputChange}
       <input 
       name="height" 
       type="number"
+      min="0"
+      max="35"
     onChange={onInputChange}
       value={input.height}/>
             </div>
@@ -127,6 +172,8 @@ onChange={onInputChange}
       <input 
       name="weight" 
       type="number"
+      min="0"
+      max="999"
     onChange={onInputChange}
       value={input.weight}/>
   </div>
@@ -136,7 +183,7 @@ onChange={onInputChange}
   {el.name}</label>)
 })}
   </div>
-        <button type='submit'>Crear Pokemon</button>
+        <button  type='submit' disabled={input.disabled} >Crear Pokemon</button>
     </form >
     <Link to = "/home" ><button>Volver</button></Link>
 </div >

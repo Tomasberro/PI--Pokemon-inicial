@@ -100,7 +100,7 @@ export default function Home() {
                     })}
                     </select> 
               
-                <SearchBar/>
+                <SearchBar />
                 <Paginado cardsxPage= {cardsxPage} allPokemons={allPokemons.length}
                 paginado= {paginado} />
                 {
