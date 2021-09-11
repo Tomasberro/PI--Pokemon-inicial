@@ -1,0 +1,19 @@
+
+.buttoncargar{
+    align-self: flex-end;
+    border: brown;
+    background-color: skyblue;
+    font-size: larger;
+}
+.buttonordenado{
+    color: black;
+    align-self: flex-end;
+    border: coral;
+    background-color: cornsilk;
+    font-size: medium;
+}
+.buttoncrear{
+font-size: 24px;
+font-style: italic;
+color: white;
+}

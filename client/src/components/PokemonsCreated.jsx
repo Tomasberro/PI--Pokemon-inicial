@@ -40,6 +40,21 @@ export default function PokemonsCreated() {
      else if (!input.image) {
         errors.image = 'Imagen es requerida';
       }
+      else if (!input.attack) {
+        errors.attack = 'Fuerza es requerida';
+      }
+      else if (!input.defense) {
+        errors.defense = 'Defensa es requerida';
+      }
+      else if (!input.hp) {
+        errors.hp = 'Vida es requerida';
+      }
+      else if (!input.height) {
+        errors.height = 'Altura es requerida';
+      }
+      else if (!input.weight) {
+        errors.weight = 'Peso es requerido';
+      }
       return errors;
     };
     useEffect(() => {
@@ -70,6 +85,9 @@ function handleCheck(e){
 }
 function handleSubmit(e){
     e.preventDefault();
+    if(Object.values(errors).length >0){
+      alert("Faltan datos a completar")
+    }else{
     dispatch(postPokemons(input))
     alert("Pokemon creado correctamente");
     setInput({
@@ -85,6 +103,7 @@ function handleSubmit(e){
         disabled:true
     })
     history.push('/home')
+  }
 }
 
     return (

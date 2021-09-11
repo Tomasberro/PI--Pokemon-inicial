@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import CardPoke from './CardPoke';
 import Paginado from './Paginado';
 import SearchBar from './SearchBar';
-
+import styles from './Home.module.css';
 
 export default function Home() {
 
@@ -37,9 +37,9 @@ export default function Home() {
     }
 
     // console.log(allPokemons)
-    useEffect(() => {
-        dispatch(getPokemons())
-    }, [dispatch])
+    // useEffect(() => {
+    //     dispatch(getPokemons())
+    // }, [dispatch])
     useEffect(() => {
         dispatch(getTypes())
     }, []);
@@ -70,36 +70,37 @@ export default function Home() {
 
     return (
         <div>
-            <Link to='/pokemonscreated'>Crear tu propio personaje</Link>
+            <Link to='/pokemonscreated' className={styles.buttoncrear}>Crear tu propio personaje</Link>
             <h1> Home de Pokemones</h1>
-            <button onClick={e => { handleSubmit(e) }}>Cargar tus personajes</button>
+            <button onClick={e => { handleSubmit(e) }} className={styles.buttoncargar}
+            >Cargar todos los Pokemons</button>
             <div>
-                
-                <select name='select' onChange={el => handleSort(el)}>
-                <option value='default'>Ordenado por</option>
+                <div >
+                <select name='select' onChange={el => handleSort(el)} className={styles.buttonordenado} >
+                <option value='default' >Ordenar por nombre</option>
                     <option value='ascendente'>Ascendente</option>
                     <option value='descendente'>Descendente</option>
                 </select> 
-                <select name='select'  onChange={el => handlePower(el)}>
-                <option value='default'>Ordenado por</option>
+                <select name='select'  onChange={el => handlePower(el)} className={styles.buttonordenado}>
+                <option value='default'>Ordenar por Fuerza</option>
                     <option value='mas'>Fuerza -</option>
                     {/* se cambian los + fuertes al final del aray */}
                     <option value='menos'>Fuerza +</option>
                 </select>
             
-                <select  onChange={el => handleFilterCreated(el)} >
+                <select  onChange={el => handleFilterCreated(el)} className={styles.buttonordenado} >
                 <option value='default'>Creado por</option>
                     <option value='api'>Existente API</option>
                     <option value='database'>Usuario</option>
                 </select>
-                <select onChange={e => handleFilterTypes(e)} >
+               <select onChange={e => handleFilterTypes(e)}  className={styles.buttonordenado}>
                 <option value='All'>Todos los tipos</option>
                 { types.map(type => {
                        
                       return  <option value={type.name}>{type.name}</option>
                     })}
                     </select> 
-              
+                    </div>
                 <SearchBar />
                 <Paginado cardsxPage= {cardsxPage} allPokemons={allPokemons.length}
                 paginado= {paginado} />

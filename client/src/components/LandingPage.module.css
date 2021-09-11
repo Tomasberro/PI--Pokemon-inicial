@@ -1,0 +1,15 @@
+.buttonland{
+    text-align: center;
+    /* height: 7%; */
+    width: 28%;
+    background: linear-gradient(to left, #354fe5c7 , #5b9de399);
+    margin: 203px;
+    padding: 11px;
+    text-align-last: center;
+    color: whitesmoke;
+    font-size: 26px;
+    position: relative;
+    bottom: -109px;
+}
+
+

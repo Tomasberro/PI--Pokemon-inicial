@@ -1,0 +1,23 @@
+.app{
+  text-align: center;
+  background-image: url('./assets/caramelo-xl-pokemon-go_crop1615560349287.jpg_976912859.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  position:-ms-page;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+/* .container{
+width: 70 vw;
+height: 70 vh;
+position: absolute;
+margin: 15vh 15 vw;
+top:0;
+} */
+
+
+
+

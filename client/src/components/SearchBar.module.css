@@ -1,0 +1,12 @@
+
+.botonbuscar{
+    align-self: flex-end;
+    border: none;
+    background-color: lightskyblue;
+    font-size: revert;
+}
+.buscador{
+background: linear-gradient(
+    45deg, black, transparent);
+    color: whitesmoke;
+}
