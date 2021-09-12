@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getPokemonsId } from '../actions';
 import { NavLink } from 'react-router-dom';
-
+import styles from './Detail.module.css';
 
 export default function Detail(props) {
     // console.log(props)
@@ -36,7 +36,7 @@ export default function Detail(props) {
                 <h5>Peso: {pokemonDetail[0].weight}</h5>
             </div> : <p>Loading...</p>}
             <NavLink to="/home">
-                <button>Volver</button>
+                <button className={styles.buttonvolver}>Volver</button>
             </NavLink>
         </div>
     )

@@ -2,6 +2,10 @@
     display: flex;
     flex-direction: column;
     width: 200 px;
+    padding: 20px;
+    margin: 10px;
+    border: 10 px;
 }
 .container{
+    width: 200px;
 }

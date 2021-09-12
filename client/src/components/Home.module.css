@@ -17,3 +17,8 @@ font-size: 24px;
 font-style: italic;
 color: white;
 }
+.cardscontainer{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}

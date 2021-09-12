@@ -18,7 +18,7 @@ function handleSubmit(e) {
     e.preventDefault()
     console.log(name)
     dispatch(getPokemonsName(name))
-    setName(' ')
+    setName('')
     // console.log('llego aca')
   }
 return (

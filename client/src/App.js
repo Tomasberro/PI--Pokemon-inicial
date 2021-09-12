@@ -25,7 +25,7 @@ function App() {
       <Route exact path="/home" ><Home />  </Route>
       {/* <Route path="/home" component={SearchBar} /> */}
       <Route path="/home/:id" component={Detail} />
-      <Route path="/pokemonscreated" component={PokemonsCreated} />
+      <Route path="/pokemonscreated"> <PokemonsCreated/></Route > 
       </Switch>
       </div>
     </div>

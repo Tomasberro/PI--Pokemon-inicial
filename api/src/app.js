@@ -23,9 +23,10 @@ server.use((req, res, next) => {// smilar a cors para browsers
 });
 
 server.use('/', routes);// va /api aca ?
-// server.get('/', (req, res) => {
-//   res.send('prueba')
-// })
+server.get('/',  (req, res) => {
+  res.send('prueba')
+  // catch(error){console.log(eror)}
+})
 // Error catching endware.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   const status = err.status || 500;//control centralizado de errores back y front

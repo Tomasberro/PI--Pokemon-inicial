@@ -104,7 +104,7 @@ export default function Home() {
                 <SearchBar />
                 <Paginado cardsxPage= {cardsxPage} allPokemons={allPokemons.length}
                 paginado= {paginado} />
-                {
+                <div className={styles.cardscontainer}>{
                     currPokemon?.map(e => {
                         return (
                             <div >
@@ -121,7 +121,7 @@ export default function Home() {
                             </div>
                         )
                     })
-                }
+                }</div>
 
             </div>
         </div>
