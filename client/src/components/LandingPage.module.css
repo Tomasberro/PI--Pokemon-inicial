@@ -4,12 +4,31 @@
     width: 28%;
     background: linear-gradient(to left, #354fe5c7 , #5b9de399);
     margin: 203px;
-    padding: 11px;
+    padding: 7px 13px;
     text-align-last: center;
     color: whitesmoke;
     font-size: 26px;
     position: relative;
     bottom: -109px;
+    border-radius: 9px;
+    font-weight: bold;
+    border: 3px solid;
 }
-
-
+.buttonland:hover {
+    color: black;
+}
+h1 {
+    margin: 0;
+    color:currentColor;
+    font-size: 50px;
+    text-shadow: 0 0 300px whitesmoke;
+    font-family: 'Century Ghotic', sans-serif;
+    font-style: italic;
+}
+.logofeat{
+    width: 200px;
+    position: relative;
+    bottom: 90px;
+    left: 550px;
+    display: flex;
+}

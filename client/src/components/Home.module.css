@@ -16,9 +16,34 @@
 font-size: 24px;
 font-style: italic;
 color: white;
+position: absolute;
+right: 230px;
+color: #037E8C;
+border: 3px solid #037E8C;
+text-decoration: auto;
+border-radius: 10px;
+}
+.favoritos{
+font-size: 24px;
+font-style: italic;
+color: white;
+position: absolute;
+right: 80px;
+color: #037E8C;
+border: 3px solid #037E8C;
+text-decoration: auto;
+border-radius: 10px;
 }
 .cardscontainer{
 display: flex;
 flex-direction: row;
 flex-wrap: wrap;
+}
+.titulohome{
+margin: 0;
+color:currentColor;
+font-size: 50px;
+text-shadow: 0 0 300px whitesmoke;
+font-family: 'Century Ghotic', sans-serif;
+font-style: italic;
 }

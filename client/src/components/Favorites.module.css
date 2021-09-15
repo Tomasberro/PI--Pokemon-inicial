@@ -1,17 +1,12 @@
-.cards{
-    /* display: flex;
-    flex-direction: column;
-    width: 200 px;
-    padding: 20px;
-    margin: 10px;
-    border: 10 px; */
+.contenedor{
     padding-inline-start: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 20px;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+grid-gap: 20px;
+/* background-color:#037E8C; */
+
 }
 .container{
-    /* width: 200px; original*/
     list-style: none;
     padding: 40px;
     background-color:transparent;
@@ -29,7 +24,7 @@
 60% { transform: translateY(-2px); }
 80%{  transform: translateY(0px);}
 }
-.name{
+.namefav{
     color: black;
     text-decoration-line: underline;
     font-size: 25px;
@@ -39,14 +34,36 @@
     font-weight: normal;
     margin-bottom: 0; */
 }
-.types{ 
+.typesfav{ 
      color: black;
     text-decoration-line: underline;
     font-size: 20px;
     font-style: italic;
-   
+   }
+.remover{
+        color: black;
+        align-self: flex-end;
+        border: coral;
+        background-color: cornsilk;
+        font-size: 20px;
+        font-style: italic;
+        border: 3px solid;
+    }
+.huno{
+  display: flex;
+  position:absolute;
+  left: 550px;
 
-} 
-/* font-weight: lighter;
-color: #666;
-margin-top: 5px; */
+}
+.buttonvolverfav{
+    color: black;
+    align-self: flex-end;
+    border: coral;
+    background-color: cornsilk;
+    font-size: 20px;
+    font-style: italic;
+    border: 2px solid;
+    position: fixed;
+    right: 30px;
+    top: 5px;
+}

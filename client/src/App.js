@@ -1,4 +1,5 @@
 import styles from './App.module.css';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import LandingPage from './components/LandingPage'
@@ -9,9 +10,9 @@ import {useDispatch} from 'react-redux';
 import { getPokemons } from './actions';
 // import SearchBar from './components/SearchBar';
 // import CardPoke from './components/CardPoke';
-// import Nav from './components/Nav/Nav.js';
+ import Favorites from './components/Favorites';
 
-function App() {
+export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPokemons())
@@ -19,17 +20,20 @@ function App() {
   return (
 
     <div className={styles.app}>
-      <div className={styles.container}>
+      {/* <div className={styles.container}> */}
       <Switch>
-      <Route exact path="/">  <LandingPage /> </Route>
-      <Route exact path="/home" ><Home />  </Route>
+      <Route exact path="/" component={LandingPage} /> 
+      <Route exact path="/home" component={Home} />
       {/* <Route path="/home" component={SearchBar} /> */}
       <Route path="/home/:id" component={Detail} />
-      <Route path="/pokemonscreated"> <PokemonsCreated/></Route > 
+      <Route path="/pokemonscreated" component={PokemonsCreated} />
+      <Route exact path="/favorites">
+        <Favorites />
+      </Route>
       </Switch>
-      </div>
+      {/* </div> */}
     </div>
   );
 }
 
-export default App;
+// export default App;

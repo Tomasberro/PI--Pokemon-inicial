@@ -4,8 +4,8 @@ import styles from './Paginado.module.css';
 export default function Paginado({ cardsxPage, paginado, allPokemons }) {
     const numbers = [];
     // console.log(cardsxPage)
-    for (let i = 0; i <= Math.ceil(allPokemons / cardsxPage); i++) {
-        numbers.push(i+1)
+    for (let i = 1; i <= Math.ceil(allPokemons / cardsxPage); i++) {
+        numbers.push(i)
 
     }
     // console.log(numbers)

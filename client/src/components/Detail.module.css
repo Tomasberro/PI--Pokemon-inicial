@@ -3,5 +3,42 @@
     align-self: flex-end;
     border: coral;
     background-color: cornsilk;
-    font-size: medium;
+    font-size: 20px;
+    font-style: italic;
+    border: 2px solid;
 }
+.buttonvolver2{
+    color: black;
+    align-self: flex-end;
+    border: coral;
+    background-color: cornsilk;
+    font-size: 20px;
+    font-style: italic;
+    border: 3px solid;
+}
+.detalle {
+    list-style: none;
+    padding: 10px;
+    background-color:#037E8C;
+    color: #222;
+    text-align: center;
+}
+.nombre{
+    font-style: italic;
+}
+.tipos{
+    font-style: italic;
+    display: inline-block;
+}
+.loading{
+    font-size: 40px;
+    font-style: italic;
+    color: #222;
+
+}
+
+/* display: flex;
+padding: 19px;
+margin: 20px;
+height: 500px;
+width: 750px;  */

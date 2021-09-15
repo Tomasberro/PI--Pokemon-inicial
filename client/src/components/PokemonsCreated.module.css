@@ -1,0 +1,55 @@
+.contenedor{
+  background-color:#037E8C;
+  background-size: cover;
+  width: 400 px;
+  height: 900px;
+  padding: 30 px;
+  margin: auto;
+  margin-top: 100 px;
+  border-radius: 4 px;
+  font-family: 'calibri';
+  color:white;
+  box-shadow: 7 px 13 px 37 px #000;
+}
+
+.inputs{
+    width: 300px;
+    background-color:#037E8C;
+    padding: 10 px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid black;
+    font-family: 'calibri';
+    font-size: 18 px;
+    color: white;
+}
+.inputs1{
+  width: 50px;
+  background-color:#037E8C;
+  padding: 10 px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid black;
+  font-family: 'calibri';
+  font-size: 18 px;
+  color: white;
+}
+.contenedor .botoncrear {
+width: 150px;
+margin: 16 px 0;
+font-size: 16px;
+border: none;
+padding: 12px;
+color: white;
+background-color:#1f53c5;
+
+}
+.buttonvolver{
+    color: black;
+    align-self: flex-end;
+    border: coral;
+    background-color: cornsilk;
+    font-size: 20px;
+    font-style: italic;
+    border: 2px solid;
+}

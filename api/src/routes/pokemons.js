@@ -23,7 +23,6 @@ router.get('/', async (req, res) => {
 
     // console.log(pokemonsRuta);
     if (name1) {
-      // console.log('entre')
       let pksName =  pokemonsRuta.filter(el => {
         // console.log(el)
         // if(el.dataValues.owndb){

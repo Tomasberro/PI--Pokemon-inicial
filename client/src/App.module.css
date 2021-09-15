@@ -1,7 +1,10 @@
 .app{
   text-align: center;
-  background-image: url('./assets/caramelo-xl-pokemon-go_crop1615560349287.jpg_976912859.jpg');
+  background-color: aliceblue;
+  /* background-image: url('./assets/caramelo-xl-pokemon-go_crop1615560349287.jpg_976912859.jpg'); */
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: center;
   background-size: cover;
   min-height: 100vh;
   position: -ms-page;

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_POKEMONS, POKEMONS_CREATED, ORDER_BY_NAME, ORDER_BY_POWER, GET_POKEMONS_NAME, GET_POKEMONS_ID, GET_TYPES, POST_POKEMONS, POKEMONS_TYPES_FILTER } from './actionsTypes';
+import { GET_POKEMONS, POKEMONS_CREATED, ORDER_BY_NAME, ORDER_BY_POWER, GET_POKEMONS_NAME, GET_POKEMONS_ID, GET_TYPES, POST_POKEMONS, POKEMONS_TYPES_FILTER, CLEAN_ACTION, ADD_FAVORITES, REMOVE_FAVORITES } from './actionsTypes';
 
 export function getPokemons (){
     return async function (dispatch){
@@ -77,6 +77,18 @@ export function pokemonsTypesFilter (payload){
     console.log(payload)
     return {
         type: POKEMONS_TYPES_FILTER,
+        payload
+    }
+}
+export function addFavorites(payload){
+    return {
+        type: ADD_FAVORITES,
+        payload
+    }
+}
+export function removeFavorites(payload){
+    return {
+        type: REMOVE_FAVORITES,
         payload
     }
 }

@@ -4,9 +4,12 @@
     border: none;
     background-color: lightskyblue;
     font-size: revert;
+    height: 20px;
 }
 .buscador{
 background: linear-gradient(
     45deg, black, transparent);
     color: whitesmoke;
+    width: 300px;
+    height: 20px;
 }
