@@ -38,7 +38,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
-    owndb: {// para saber cuando es creado por usuario
+    owndb: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true

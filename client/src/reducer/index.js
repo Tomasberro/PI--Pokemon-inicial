@@ -18,7 +18,7 @@ const rootReducer = (state = initialState, action) => {
         case POKEMONS_CREATED:
             let pokemonsAll = state.filtrados;
 
-            let pokesfiltrcreat = action.payload === 'database' ? pokemonsAll.filter(el => el.owndb) : pokemonsAll.filter(el => !el.owndb);
+            let pokesfiltrcreat = action.payload === 'api' ? pokemonsAll.filter(el => !el.owndb) : pokemonsAll.filter(el => el.owndb);
             return {
                 ...state,
                 pokemons: pokesfiltrcreat

@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { addFavorites, getPokemonsId } from '../actions';
 import { NavLink } from 'react-router-dom';
 import styles from './Detail.module.css';
+import loading from '../assets/Loading.jpeg';
 
 export default function Detail(props) {
     const { id } = props.match.params
@@ -32,7 +33,7 @@ export default function Detail(props) {
             <h1>Detalles</h1>
             {pokemonDetail.length ? <div>
                 <img src={pokemonDetail[0].image} alt="not found" width="200px" height="250px" />
-                <h1 className={styles.nombre}> {pokemonDetail[0].name} </h1>
+                <h1 className={styles.nombre}> {pokemonDetail[0].name.toUpperCase()} </h1>
 
                 <h2 className={styles.tipos}> Tipo: {pokemonDetail[0].types.map(el => {
                     return (el.name ?
@@ -47,7 +48,8 @@ export default function Detail(props) {
                 <p>Velocidad: {pokemonDetail[0].speed}</p>
                 <h4>Altura: {pokemonDetail[0].height}</h4>
                 <h5>Peso: {pokemonDetail[0].weight}</h5>
-            </div> : <p className={styles.loading}>Loading...</p>}
+            </div> : <div><img src={loading} alt='Not found' width='300px' height='300px' />
+            <p className={styles.loading}>Loading...</p></div>}
             <NavLink to="/home">
                 <button className={styles.buttonvolver}>Volver</button>
             </NavLink>

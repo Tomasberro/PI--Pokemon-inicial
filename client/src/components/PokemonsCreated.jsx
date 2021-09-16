@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { getTypes, postPokemons } from '../actions';
 import styles from './PokemonsCreated.module.css';
 
-
+var cache=[]
 
 export default function PokemonsCreated() {
   const dispatch = useDispatch();
@@ -70,14 +70,22 @@ export default function PokemonsCreated() {
 
   }
 
+
   function handleCheck(e) {
-    if (e.target.checked) {
+  
+ if (e.target.checked && cache.length<2) {
+  cache.push(e.target.checked)
+  console.log(cache)  
       setInput({
         ...input,
         types: [...input.types, e.target.value]
       })
-    }
+}else{e.target.checked = false
+e.target.value = null}
+
   }
+  
+
   function handleSubmit(e) {
     e.preventDefault();
     if (Object.values(errors).length > 0) {
@@ -98,6 +106,7 @@ export default function PokemonsCreated() {
         disabled: true
       })
       history.push('/home')
+      window.location.replace('')
     }
   }
 
@@ -200,9 +209,9 @@ export default function PokemonsCreated() {
             onChange={onInputChange}
             value={input.weight} />
         </div>
-        <div> <label >Tipos: </label>
+        <div > <label >Tipos: </label>
           {types ? types.map(el => {
-            return (<label><input type="checkbox" name={el.name} value={el.name} onChange={handleCheck} />
+            return (<label id='aca'><input type="checkbox" name={el.name} value={el.name} onChange={handleCheck} />
               {el.name}</label>)
           }) : "Error en types"}
         </div>

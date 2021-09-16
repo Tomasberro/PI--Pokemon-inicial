@@ -7,6 +7,7 @@ import CardPoke from './CardPoke';
 import Paginado from './Paginado';
 import SearchBar from './SearchBar';
 import styles from './Home.module.css';
+import readme from '../assets/readme.png';
 
 export default function Home() {
 
@@ -36,6 +37,7 @@ export default function Home() {
         dispatch(getPokemons())
     }
     function handleFilterCreated(e) {
+        e.preventDefault()
         dispatch(pokemonsCreated(e.target.value))
     }
     function handleSort(e) {
@@ -51,6 +53,7 @@ export default function Home() {
         setFuerza(`Ordenado${e.target.value}`)
     }
     function handleFilterTypes(e) {
+        e.preventDefault()
         dispatch(pokemonsTypesFilter(e.target.value))
     }
 
@@ -61,6 +64,7 @@ export default function Home() {
                 <Link to="/favorites" className={styles.favoritos}>
                     Favoritos</Link></div>
             <h1> Home</h1>
+            <div className={styles.readme}><img src={readme} alt="Loading" width="100px" height="100px" /></div>
             <button onClick={e => { handleSubmit(e) }} className={styles.buttoncargar}
             >Cargar todos los Pokemons</button>
             <div>
@@ -96,8 +100,8 @@ export default function Home() {
                 <div className={styles.cardscontainer}>{
                     currPokemon?.map(e => {
                         return (
-                            <div >
-                                <Link to={`/home/${e.id}`}>
+                            <div  >
+                                <Link to={`/home/${e.id}`} className={styles.link}>
                                     <CardPoke key={e.id} image={e.image} name={e.name}
                                         types={e.types.map(el => {
                                             return (el.name ?
