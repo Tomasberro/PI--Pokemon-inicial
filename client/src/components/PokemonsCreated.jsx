@@ -54,7 +54,7 @@ export default function PokemonsCreated() {
   };
   useEffect(() => {
     dispatch(getTypes())
-  }, []);
+  }, [dispatch]);
   function onInputChange(e) {
     var objErrors = validate({
       ...input,

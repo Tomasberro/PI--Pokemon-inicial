@@ -4,7 +4,7 @@ const {Type} = require('../db');
 
 const router = Router();
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
     try{const infoApityp = await axios.get('https://pokeapi.co/api/v2/type');
     const infoType = infoApityp.data.results.map(elem => elem.name);
     // console.log(infoType)
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
     const typeFinal = await Type.findAll();
     // console.log(typeFinal)
     res.send(typeFinal);}
-    catch(error){console.log(error)}
+    catch(error){next(error)}
   })
 
 

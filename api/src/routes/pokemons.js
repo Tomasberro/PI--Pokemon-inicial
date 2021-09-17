@@ -13,7 +13,7 @@ const pksTotal = async () => {
   return infoTotal;
 }
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
   const name1 = req.query.name;
   try {
     const pokemonsRuta = await pksTotal();
@@ -35,10 +35,10 @@ router.get('/', async (req, res) => {
     } else {
       res.status(200).send(pokemonsRuta);
     }
-  } catch (error) { console.log(error) }
+  } catch (error) { next(error) }
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res, next) => {
   const id = req.params.id;
   try {
     const pokemonsRuta = await pksTotal();
@@ -48,10 +48,10 @@ router.get('/:id', async (req, res) => {
       pokemonId.length ? res.status(200).json(pokemonId) : res.status(404).send('Pokemon no encontrado');
     }
   }
-  catch (error) { console.log(error) }
+  catch (error) { next(error) }
 })
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
   let {
     name,
     id,
@@ -85,7 +85,32 @@ router.post('/', async (req, res) => {
 
     res.send('soy el post de pokemons')
   }
-  catch (error) { console.log(error) }
+  catch (error) { next(error) }
 })
+
+router.put("/:id", async (req, res) => {
+  const { name } = req.body;
+  const { id } = req.params;
+try{
+   const PokeUpdate= await Pokemon.update({name: name},{
+     where: {
+       id: id
+     }
+   });
+  res.status(200).send("Pokemon update succesfull")
+} catch (error) { next(error) }
+});
+
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+  try{ const PokeDelete= await Pokemon.findOne({
+      where: {
+        id: id
+      }
+    });
+    await PokeDelete.destroy();
+    res.status(200).send("Pokemon deleted succesfull")
+  } catch (error) { next(error) }
+});
 
 module.exports = router;

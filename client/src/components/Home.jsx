@@ -30,7 +30,7 @@ export default function Home() {
 
     useEffect(() => {
         dispatch(getTypes())
-    }, []);
+    }, [dispatch]);
 
     function handleSubmit(e) {
         e.preventDefault()

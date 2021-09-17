@@ -11,9 +11,9 @@ export default function Paginado({ cardsxPage, paginado, allPokemons }) {
     // console.log(numbers)
     return (
         <nav className={styles.paginacion}>
-            <ul className={styles.ul}> {numbers?.map(number => {
+            <ul className={styles.ul}> {numbers?.map((number, index) => {
             // console.log(paginado(number))
-             return(  <p class="active" onClick={() => paginado(number)}>{number}</p>
+             return(  <p key={index} onClick={() => paginado(number)}>{number}</p>
              )
             })
             }

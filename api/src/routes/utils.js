@@ -48,7 +48,10 @@ module.exports = {
         })
     },
 };
-//   update : (id, name, phone) => {
+// const findById = (id) => {
+//     return pksTotal.find(el => el.id === id);
+//   };
+//   update : (id, name) => {
 //         const contact = findById(id);
 //         if (!contact) throw new Error("No existe un contacto con dicho id.");
 //         contact.name = name;

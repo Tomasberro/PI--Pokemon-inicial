@@ -16,7 +16,7 @@ export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPokemons())
-}, [])
+}, [dispatch])
   return (
 
     <div className={styles.app}>

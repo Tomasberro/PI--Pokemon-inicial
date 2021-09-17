@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_POKEMONS, POKEMONS_CREATED, ORDER_BY_NAME, ORDER_BY_POWER, GET_POKEMONS_NAME, GET_POKEMONS_ID, GET_TYPES, POST_POKEMONS, POKEMONS_TYPES_FILTER, CLEAN_ACTION, ADD_FAVORITES, REMOVE_FAVORITES } from './actionsTypes';
+import { GET_POKEMONS, POKEMONS_CREATED, ORDER_BY_NAME, ORDER_BY_POWER, GET_POKEMONS_NAME, GET_POKEMONS_ID, GET_TYPES, POST_POKEMONS, POKEMONS_TYPES_FILTER,  ADD_FAVORITES, REMOVE_FAVORITES } from './actionsTypes';
 
 export function getPokemons (){
     return async function (dispatch){
@@ -33,11 +33,12 @@ export function orderByPower (payload){
 }
 export function getPokemonsName (payload){
     return async function (dispatch){
-    let response = await axios.get('http://localhost:3001/pokemons?name=' + payload);
+  try{  let response = await axios.get('http://localhost:3001/pokemons?name=' + payload);
     return dispatch ({
         type:  GET_POKEMONS_NAME,  
         payload: response.data
     })
+}catch(error){alert('Pokemon no encontrado')}
 }
 }
 
@@ -55,26 +56,26 @@ export function getPokemonsId (payload){
 
 export function getTypes (){
     return async function (dispatch){
-    let response = await axios.get('http://localhost:3001/types', {});
+  try{  let response = await axios.get('http://localhost:3001/types', {});
     return dispatch ({
         type:  GET_TYPES,  
         payload: response.data
     })
+}catch(error){console.log(error)}
 }
 }
 export function postPokemons (payload){
-    return async function (){
+    return async function (dispatch){
     let response = await axios.post('http://localhost:3001/pokemons',payload);
-    return response
-    // dispatch ({
-    //     type:  POST_POKEMONS,  
-    //     payload: response.data
-    // })
+    // return response
+    dispatch ({
+        type:  POST_POKEMONS,  
+        payload: response.data
+    })
 }
 }
 
 export function pokemonsTypesFilter (payload){
-    console.log(payload)
     return {
         type: POKEMONS_TYPES_FILTER,
         payload
