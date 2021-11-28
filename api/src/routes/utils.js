@@ -27,7 +27,8 @@ module.exports = {
                 defense: elem.data.stats[2].base_stat,
                 speed: elem.data.stats[5].base_stat,
                 height: elem.data.height,
-                weight: elem.data.weight
+                weight: elem.data.weight,
+                specialattack: elem.data.stats[3].base_stat,
             }
 
             return obj;

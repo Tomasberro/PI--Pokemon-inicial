@@ -6,7 +6,12 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from "react-redux";
 import store from "./store/index";
+import axios from 'axios';
+import dotenv from 'dotenv';
+const {REACT_APP_AWS_PORT} = process.env;
 
+dotenv.config();
+axios.defaults.baseURL = REACT_APP_AWS_PORT || "http://localhost:3001";
 
 ReactDOM.render(
   <Provider store={store}>

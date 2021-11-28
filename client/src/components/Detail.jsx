@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { addFavorites, getPokemonsId } from '../actions';
+import { addFavorites, cleanDetail, getPokemonsId } from '../actions';
 import { NavLink } from 'react-router-dom';
 import styles from './Detail.module.css';
 import loading from '../assets/Loading.jpeg';
@@ -11,6 +11,7 @@ export default function Detail(props) {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getPokemonsId(id))
+        return () => dispatch(cleanDetail(id))
     }, [dispatch, id]);
     const pokemonDetail = useSelector((state) => state.detail);
    

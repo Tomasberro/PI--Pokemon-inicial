@@ -103,6 +103,7 @@ export default function Home() {
                             <div  >
                                 <Link to={`/home/${e.id}`} className={styles.link}>
                                     <CardPoke key={e.id} image={e.image} name={e.name}
+                                    specialattack={e.specialattack}
                                         types={e.types.map(el => {
                                             return (el.name ?
                                                 <div>{el.name}</div>

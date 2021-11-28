@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_POKEMONS, POKEMONS_CREATED, ORDER_BY_NAME, ORDER_BY_POWER, GET_POKEMONS_NAME, GET_POKEMONS_ID, GET_TYPES, POST_POKEMONS, POKEMONS_TYPES_FILTER,  ADD_FAVORITES, REMOVE_FAVORITES } from './actionsTypes';
+import { GET_POKEMONS, POKEMONS_CREATED, ORDER_BY_NAME, ORDER_BY_POWER, GET_POKEMONS_NAME, GET_POKEMONS_ID, GET_TYPES, POST_POKEMONS, POKEMONS_TYPES_FILTER,  ADD_FAVORITES, REMOVE_FAVORITES, CLEAN_DETAIL } from './actionsTypes';
 
 export function getPokemons (){
     return async function (dispatch){
@@ -38,7 +38,7 @@ export function getPokemonsName (payload){
         type:  GET_POKEMONS_NAME,  
         payload: response.data
     })
-}catch(error){alert('Pokemon no encontrado')}
+}catch(err){alert('Pokemon no encontrado')}
 }
 }
 
@@ -52,6 +52,12 @@ export function getPokemonsId (payload){
     })
 }catch(error){console.log(error)}
 }
+}
+export function cleanDetail (payload){
+    return {
+        type: CLEAN_DETAIL,
+        payload
+    }
 }
 
 export function getTypes (){

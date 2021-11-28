@@ -19,10 +19,9 @@ router.get('/', async (req, res, next) => {
     const pokemonsRuta = await pksTotal();
 
     if (name1) {
-      let pksName = pokemonsRuta.filter(el => {
-
-        return el.name.toLowerCase() == name1.toLowerCase()
-      });
+      let pksName = pokemonsRuta.filter(el =>  el.name.toLowerCase().includes(name1.toLowerCase())
+      
+  );
 
       let resto = pksName.map(elem => {
         return {

@@ -1,4 +1,4 @@
-import { GET_POKEMONS, POKEMONS_CREATED, ORDER_BY_NAME, ORDER_BY_POWER, GET_POKEMONS_NAME, GET_POKEMONS_ID, POST_POKEMONS, GET_TYPES, POKEMONS_TYPES_FILTER,  ADD_FAVORITES, REMOVE_FAVORITES } from "../actions/actionsTypes";
+import { GET_POKEMONS, POKEMONS_CREATED, ORDER_BY_NAME, ORDER_BY_POWER, GET_POKEMONS_NAME, GET_POKEMONS_ID, POST_POKEMONS, GET_TYPES, POKEMONS_TYPES_FILTER,  ADD_FAVORITES, REMOVE_FAVORITES, CLEAN_DETAIL } from "../actions/actionsTypes";
 
 var initialState = {
     pokemons: [],
@@ -79,6 +79,11 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 detail: action.payload,
+            }
+        case CLEAN_DETAIL:
+            return {
+                ...state,
+                detail: []
             }
         case POST_POKEMONS:
             return {
