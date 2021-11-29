@@ -24,6 +24,6 @@ const port = process.env.PORT || 3001;
 // Syncing all the models at once.
 conn.sync({ force: true}).then(() => {// force true borra bd c/vez q levanto el back y cierrols
   server.listen(port, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log(`Server listen in ${process.env.NODE_ENV} port ${port}`); // eslint-disable-line no-console
   });
 });

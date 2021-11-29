@@ -8,10 +8,11 @@ import { Provider } from "react-redux";
 import store from "./store/index";
 import axios from 'axios';
 import dotenv from 'dotenv';
-const {REACT_APP_AWS_PORT} = process.env;
-
 dotenv.config();
-axios.defaults.baseURL = REACT_APP_AWS_PORT || "http://localhost:3001";
+
+
+
+axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
 ReactDOM.render(
   <Provider store={store}>
