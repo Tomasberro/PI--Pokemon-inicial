@@ -14,9 +14,9 @@ export default function Home() {
     const dispatch = useDispatch();
     const allPokemons = useSelector(state => state.pokemons);
     const [pagUno, setpagUno] = useState(1);
-    const [cardsxPage, setcardsxPage] = useState(12);
-    const [orden, setOrden] = useState('');
-    const [fuerza, setFuerza] = useState('');
+    const [cardsxPage] = useState(12);
+    const [ setOrden] = useState('');
+    const [ setFuerza] = useState('');
     const types = useSelector((state) => state.types)
 
     const lastPokemoninit = pagUno === 1 ? (pagUno * cardsxPage) - 3 : (pagUno * cardsxPage) - 3;//9 - 21
