@@ -3,3 +3,10 @@
     top: 0;
     left: 40px;
 }
+.buttoncargar{
+    align-self: flex-end;
+    border: brown;
+    background-color: skyblue;
+    font-size: larger;
+    border: 1px solid;
+}

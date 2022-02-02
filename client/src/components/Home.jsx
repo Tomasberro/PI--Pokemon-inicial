@@ -31,11 +31,6 @@ export default function Home() {
         dispatch(getTypes())
     }, [dispatch]);
 
-    function handleSubmit(e) {
-        e.preventDefault()
-        dispatch(getPokemons())
-        window.location.replace('')
-    }
     function handleFilterCreated(e) {
         e.preventDefault()
         dispatch(pokemonsCreated(e.target.value))
@@ -60,11 +55,11 @@ export default function Home() {
     return (
         <div>
             <NavBar/>
-            <button onClick={e => { handleSubmit(e) }} className={styles.buttoncargar}
-            >Cargar todos los Pokemons</button>
+            {/* <button onClick={e => { handleSubmit(e) }} className={styles.buttoncargar}
+            >Cargar Pokemons</button> */}
             <div>
-                <div >
-                    <div>
+                <div className={styles.filters}>
+                    <div className={styles.filters}>
                     <select name='select' onChange={el => handleSort(el)}  
                     class="btn-group info">
                    
@@ -85,7 +80,8 @@ export default function Home() {
                         <option value='api' class="dropdown-item">Existente API</option>
                         <option value='database' class="dropdown-item">Usuario</option>
                     </select>
-                    <select onChange={e => handleFilterTypes(e)} className=' class="btn-group info'>
+                    <select onChange={e => handleFilterTypes(e)} className=' class="btn-group info'
+                    >
                         <option value='All' class="dropdown-menu">Todos los tipos</option>
                         {types && types.map((type) => {
 
