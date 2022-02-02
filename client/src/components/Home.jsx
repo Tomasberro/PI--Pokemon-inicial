@@ -5,9 +5,8 @@ import { getPokemons, getTypes, orderByName, orderByPower, pokemonsCreated, poke
 import { Link } from 'react-router-dom';
 import CardPoke from './CardPoke';
 import Paginado from './Paginado';
-import SearchBar from './SearchBar';
 import styles from './Home.module.css';
-import readme from '../assets/readme.png';
+import NavBar from './NavBar';
 
 export default function Home() {
 
@@ -35,6 +34,7 @@ export default function Home() {
     function handleSubmit(e) {
         e.preventDefault()
         dispatch(getPokemons())
+        window.location.replace('')
     }
     function handleFilterCreated(e) {
         e.preventDefault()
@@ -59,42 +59,41 @@ export default function Home() {
 
     return (
         <div>
-            <div> <Link to='/pokemonscreated' className={styles.buttoncrear}>
-                Crear tu propio personaje</Link>
-                <Link to="/favorites" className={styles.favoritos}>
-                    Favoritos</Link></div>
-            <h1> Home</h1>
-            <div className={styles.readme}><img src={readme} alt="Loading" width="100px" height="100px" /></div>
+            <NavBar/>
             <button onClick={e => { handleSubmit(e) }} className={styles.buttoncargar}
             >Cargar todos los Pokemons</button>
             <div>
                 <div >
-                    <select name='select' onChange={el => handleSort(el)} className={styles.buttonordenado} >
-                        <option value='default' >Ordenar por nombre</option>
-                        <option value='ascendente'>Ascendente</option>
-                        <option value='descendente'>Descendente</option>
+                    <div>
+                    <select name='select' onChange={el => handleSort(el)}  
+                    class="btn-group info">
+                   
+                        <option value='default' class="btn btn-danger dropdown-toggle" >Ordenar por nombre</option>
+                        <option value='ascendente' class="dropdown-item">Ascendente</option>
+                        <option value='descendente' class="dropdown-item">Descendente</option>
                     </select>
-                    <select name='select' onChange={el => handlePower(el)} className={styles.buttonordenado}>
-                        <option value='default'>Ordenar por Fuerza</option>
-                        <option value='mas'>Fuerza -</option>
+                    <select name='select' onChange={el => handlePower(el)} className='btn-group info'>
+                        <option value='default' class="btn btn-danger dropdown-toggle">Ordenar por Fuerza</option>
+                        <option value='mas' class="dropdown-item">Fuerza -</option>
                         {/* se cambian los + fuertes al final del aray */}
-                        <option value='menos'>Fuerza +</option>
+                        <option value='menos' class="dropdown-item">Fuerza +</option>
                     </select>
-
-                    <select onChange={el => handleFilterCreated(el)} className={styles.buttonordenado} >
-                        <option value='default'>Creado por</option>
-                        <option value='api'>Existente API</option>
-                        <option value='database'>Usuario</option>
+                    </div>
+                    <div>
+                    <select onChange={el => handleFilterCreated(el)} className='btn-group info' >
+                        <option value='default' class="btn btn-danger dropdown-toggle">Creado por</option>
+                        <option value='api' class="dropdown-item">Existente API</option>
+                        <option value='database' class="dropdown-item">Usuario</option>
                     </select>
-                    <select onChange={e => handleFilterTypes(e)} className={styles.buttonordenado}>
-                        <option value='All'>Todos los tipos</option>
+                    <select onChange={e => handleFilterTypes(e)} className=' class="btn-group info'>
+                        <option value='All' class="dropdown-menu">Todos los tipos</option>
                         {types && types.map((type) => {
 
                             return <option key={type.id} value={type.name}>{type.name}</option>
                         })}
                     </select>
+                    </div>
                 </div>
-                <SearchBar />
                 <Paginado cardsxPage={cardsxPage} allPokemons={allPokemons.length}
                     paginado={paginado} />
                 <div className={styles.cardscontainer}>{

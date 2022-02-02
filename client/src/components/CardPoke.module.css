@@ -77,7 +77,7 @@ display: flex;
 }
 .name{
     color: black;
-    text-decoration-line: underline;
+    text-decoration-line: none;
     font-size: 25px;
     font-style: italic;
     text-transform: uppercase;
@@ -91,7 +91,7 @@ display: flex;
 }
 .types{ 
      color: black;
-    text-decoration-line: underline;
+    text-decoration-line: none;
     font-size: 20px;
     font-style: italic;
   } 

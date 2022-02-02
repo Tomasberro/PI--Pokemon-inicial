@@ -11,6 +11,7 @@ import { getPokemons } from './actions';
 // import SearchBar from './components/SearchBar';
 // import CardPoke from './components/CardPoke';
  import Favorites from './components/Favorites';
+import NavBar from './components/NavBar';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ export default function App() {
       {/* <div className={styles.container}> */}
       <Switch>
       <Route exact path="/" component={LandingPage} /> 
+      {/* <Route exact path="/" component={NavBar} />  */}
       <Route exact path="/home" component={Home} />
       {/* <Route path="/home" component={SearchBar} /> */}
       <Route path="/home/:id" component={Detail} />

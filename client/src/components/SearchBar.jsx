@@ -2,7 +2,7 @@ import React from 'react';
 import {useState } from 'react';
 import {  useDispatch } from 'react-redux';
 import { getPokemonsName} from '../actions';
-import styles from './SearchBar.module.css';
+// import styles from './SearchBar.module.css';
 
 export default function SearchBar() {
 const [name, setName] = useState('');
@@ -25,16 +25,16 @@ function cleanState(e){
 }
 return (
     <div>
+        <form class="form-inline my-2 my-lg-0">
         <input   
-        type= 'text'
-        placeholder= 'Buscar...'
-        onChange= {handleInputChange}
-        className= {styles.buscador}
+       class="form-control my-2 my-sm-0" type="search" placeholder="Buscar" aria-label="Search"
+        onChange= {handleInputChange} 
         />
     <button type='submit' onClick={(e) => handleSubmit(e)}
-    className={styles.botonbuscar} >Buscar</button>
-    <button type='submit' onClick={(e) => cleanState(e)}
-    className={styles.botonbuscar} >Limpiar</button>
+    class="btn btn-primary" >Buscar</button>
+    {/* <button type='submit' onClick={(e) => cleanState(e)}
+    class="btn btn-primary" >Limpiar</button> */}
+     </form> 
     </div>
      
 )
