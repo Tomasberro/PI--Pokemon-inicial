@@ -18,18 +18,20 @@ export function NavBar(){
 return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03"
+    >
     
       <img src={readme} alt="Loading" width="50px" height="50px"
-      className={styles.readme} />
+       className={styles.readme}/>
   
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-          <a class="badge badge-primary"  href="/pokemonscreated"> Crear tu propio personaje
+          <a class="badge badge-primary  " font-size="1rem"  href="/pokemonscreated" 
+          > Crear tu propio personaje
            <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="badge badge-primary" href="/favorites"> Favoritos</a>
+          <a class="badge badge-primary " href="/favorites"> Favoritos</a>
         </li>
       </ul>
       </div>

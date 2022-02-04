@@ -10,3 +10,9 @@
     font-size: larger;
     border: 1px solid;
 }
+.badge{
+    margin-right: 25px;
+    margin-left: 50px;
+    height: 25px;
+    font-size: 15px;
+}

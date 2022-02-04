@@ -14,8 +14,8 @@ export default function Home() {
     const allPokemons = useSelector(state => state.pokemons);
     const [pagUno, setpagUno] = useState(1);
     const [cardsxPage] = useState(12);
-    const [ setOrden] = useState('');
-    const [ setFuerza] = useState('');
+    const [ orden, setOrden] = useState('');
+    const [ fuerza, setFuerza] = useState('');
     const types = useSelector((state) => state.types)
 
     const lastPokemoninit = pagUno === 1 ? (pagUno * cardsxPage) - 3 : (pagUno * cardsxPage) - 3;//9 - 21
@@ -37,15 +37,16 @@ export default function Home() {
     }
     function handleSort(e) {
         e.preventDefault()
+        console.log(e.target.value)
         dispatch(orderByName(e.target.value))
-        setpagUno(1)
-        setOrden(`Ordenado${e.target.value}`)
+         setpagUno(1)
+     setOrden(`Ordenado${e.target.value}`)
     }
     function handlePower(e) {
         e.preventDefault()
         dispatch(orderByPower(e.target.value))
         setpagUno(1)
-        setFuerza(`Ordenado${e.target.value}`)
+         setFuerza(`Ordenado${e.target.value}`)
     }
     function handleFilterTypes(e) {
         e.preventDefault()
@@ -80,12 +81,13 @@ export default function Home() {
                         <option value='api' class="dropdown-item">Existente API</option>
                         <option value='database' class="dropdown-item">Usuario</option>
                     </select>
-                    <select onChange={e => handleFilterTypes(e)} className=' class="btn-group info'
+                    <select onChange={e => handleFilterTypes(e)} className='btn-group info'
                     >
                         <option value='All' class="dropdown-menu">Todos los tipos</option>
                         {types && types.map((type) => {
 
-                            return <option key={type.id} value={type.name}>{type.name}</option>
+                            return <option key={type.id} value={type.name}
+                            class="dropdown-item">{type.name}</option>
                         })}
                     </select>
                     </div>
