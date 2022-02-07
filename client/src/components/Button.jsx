@@ -1,7 +1,7 @@
 import React from "react";
 import { getPokemons } from '../actions';
 import { useDispatch } from 'react-redux';
-
+import styles from './Button.css'
 export default function Button(){
     const dispatch = useDispatch();
     function handleSubmit(e) {
@@ -12,6 +12,6 @@ export default function Button(){
 
     return(
         <button onClick={e => { handleSubmit(e) }}  className="btn btn-primary"
-            >Cargar Pokemons</button>
+          styles={styles}  >Cargar Pokemons</button>
     )
 }

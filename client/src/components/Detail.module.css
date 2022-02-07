@@ -20,13 +20,66 @@
     list-style: none;
     padding: 10px;
     background-color:#037E8C;
-    color: #222;
+    color:whitesmoke;
+    font-family: fangsong;
+    font-variant: all-petite-caps;
+    font-style:italic;
     text-align: center;
     background-size: cover;
     /* height: 100vh; */
 }
+.detalleli{
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc; */
+    width: 30%;
+    position: relative;
+    display:inline-block;
+    right: 60px;
+    padding: 30px;
+    background: #98D7A5;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgb(100 100 100 / 50%);
+    @media (max-width: 850px){
+        position: unset;
+        display: block;
+        width: 50%;
+        margin: auto;
+    }
+}
+h2 {
+    margin-bottom: 7px;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+h2 > span {
+    text-transform: capitalize;
+    font-weight: 400;
+    margin-left: 7px;
+    font-size: 1.3rem;
+}
+@media (max-width: 520px){
+    h2 {
+        font-size: 10px;
+}
+}
+.imgdetail {
+    display: block;
+    margin: auto;
+    width: 40%;
+    background-color: rgb(222,253,224);
+    border-radius: 50%;
+}
+@media (max-width: 520px){
+    img {
+        width: 100px;
+    }
+}
 .nombre{
     font-style: italic;
+    color: white;
 }
 .tipos{
     font-style: italic;

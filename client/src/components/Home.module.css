@@ -86,7 +86,9 @@ font-style: italic;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0;
     padding: 0;
+    margin-right: 25px;
+    margin-left: 25px;
 }

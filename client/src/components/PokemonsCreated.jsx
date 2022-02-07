@@ -113,7 +113,7 @@ e.target.value = null}
   return (
     <div className={styles.contenedor}>
 
-      <h1>Crear Pokemon</h1>
+      <h1>Crear</h1>
       <form onSubmit={e => handleSubmit(e)}>
         <div>
           <label >Image: </label>
