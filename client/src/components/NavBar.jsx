@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import SearchBar from './SearchBar';
 import readme from '../assets/readme.png';
 import styles from './NavBar.css';
@@ -13,7 +13,7 @@ export function NavBar(){
   function handleSubmit(e) {
     e.preventDefault()
     dispatch(getPokemons())
-    window.location.replace('')
+    // window.location.replace('')
 }
 return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -31,7 +31,8 @@ return (
            <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="badge badge-primary " href="/favorites"> Favoritos</a>
+          <NavLink class="badge badge-primary " to="/favorites">Favoritos</NavLink>
+          {/* <a class="badge badge-primary " href="/favorites"> Favoritos</a> */}
         </li>
       </ul>
       </div>

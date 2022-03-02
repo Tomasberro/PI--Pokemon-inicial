@@ -22,7 +22,7 @@ export default function Favorites() {
 
         <div className={styles.contenedor}>
             <h1 className={styles.huno}>Favoritos </h1>
-            {favoritos.map(el => {
+            {favoritos && favoritos.map(el => {
                 return <div className={styles.container} key={el.id}>
                     <img src={el.image} alt="imagen no encontrada" width="200px" height="250px" />
                     <div className={styles.namefav}>{el.name} </div>

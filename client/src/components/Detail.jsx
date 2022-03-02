@@ -15,9 +15,13 @@ export default function Detail(props) {
         return () => dispatch(cleanDetail(id))
     }, [dispatch, id]);
     const pokemonDetail = useSelector((state) => state.detail);
+    const favoritos = useSelector((state) => state.favorites);
    
     function agregarFavoritos(e) {
         e.preventDefault()
+        console.log(favoritos)
+        let exist = favoritos.find(el => el.id == pokemonDetail[0].id)
+        if(!exist){
         dispatch(addFavorites({
             image: pokemonDetail[0].image,
             name: pokemonDetail[0].name,
@@ -30,7 +34,10 @@ export default function Detail(props) {
             })
         }))
         swal("Eso es!", "Agregado a tu lista de Favoritos!");
+    }else{
+        swal("No!", "Ya esta en tu lista de Favoritos!");
     }
+}
     return (
         <div className={styles.detalle}>
             {pokemonDetail.length ?
