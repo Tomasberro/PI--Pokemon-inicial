@@ -19,9 +19,10 @@ export default function Favorites() {
     
 
     return (
-
+        <>
+        <h1 className={styles.huno}>Favoritos </h1>
         <div className={styles.contenedor}>
-            <h1 className={styles.huno}>Favoritos </h1>
+         
             {favoritos && favoritos.map(el => {
                 return <div className={styles.container} key={el.id}>
                     <img src={el.image} alt="imagen no encontrada" width="200px" height="250px" />
@@ -40,5 +41,6 @@ export default function Favorites() {
                 <button className={styles.buttonvolverfav}>Home</button>
             </NavLink>
         </div>
+        </>
     )
 }
