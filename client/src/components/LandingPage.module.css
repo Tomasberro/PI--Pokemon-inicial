@@ -1,15 +1,21 @@
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 .buttonland{
     text-align: center;
     /* height: 7%; */
-    width: 28%;
+    width: 100%;
     background: linear-gradient(to left, #354fe5c7 , #5b9de399);
-    margin: 203px;
+    margin-top: 100px;
+    margin-bottom: 100px;
     padding: 7px 13px;
     text-align-last: center;
     color: whitesmoke;
     font-size: 26px;
-    position: relative;
-    bottom: -109px;
     border-radius: 9px;
     font-weight: bold;
     border: 3px solid;
@@ -28,8 +34,27 @@ h1 {
 }
 .logofeat{
     width: 200px;
-    position: relative;
-    bottom: 90px;
-    left: 550px;
-    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .logofeat{
+        width: 150px;
+    }
+    h1{
+        font-size: 40px;
+    }
+}
+@media screen and (max-width: 370px) {
+    .buttonland{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        padding: 5px 10px;
+        font-size: 20px;
+    }
+    .logofeat{
+        width: 100px;
+    }
+    h1{
+        font-size: 30px;
+    }
 }

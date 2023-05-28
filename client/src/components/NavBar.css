@@ -1,7 +1,5 @@
 .readme{
-    position: absolute;
-    top: 0;
-    left: 40px;
+  padding-left: 30px;
 }
 .buttoncargar{
     align-self: flex-end;
@@ -15,4 +13,11 @@
     margin-left: 50px;
     height: 25px;
     font-size: 15px;
+}
+._liDrop{
+    display: flex;
+}
+.subContainer{
+    display: flex;
+    flex-direction: row;
 }

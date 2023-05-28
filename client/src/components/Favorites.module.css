@@ -4,7 +4,7 @@ display: grid;
 grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 grid-gap: 20px;
 /* background-color:#037E8C; */
-
+margin-top: 50px;
 }
 .container{
     
@@ -68,9 +68,7 @@ grid-gap: 20px;
     }
 .huno{
   display: flex;
-  position:absolute;
-  left: 550px;
-
+  margin-left: 30px;
 }
 .buttonvolverfav{
     color: black;
@@ -84,3 +82,4 @@ grid-gap: 20px;
     right: 30px;
     top: 5px;
 }
+
