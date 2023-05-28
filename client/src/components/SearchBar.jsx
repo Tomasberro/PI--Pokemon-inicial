@@ -4,7 +4,7 @@ import {  useDispatch } from 'react-redux';
 import { getPokemonsName} from '../actions';
 // import styles from './SearchBar.module.css';
 
-export default function SearchBar() {
+export default function SearchBar({width}) {
 const [name, setName] = useState('');
 const dispatch = useDispatch();
 
@@ -25,13 +25,13 @@ function cleanState(e){
 }
 return (
     <div>
-        <form class="form-inline my-2 my-lg-0">
+        <form class={width > 768? "form-inline my-2 my-lg-0" : "form-inline my-1 my-sm-0"}>
         <input   
-       class="form-control my-2 my-sm-0" type="search" placeholder="Buscar" aria-label="Search"
+       class={width> 768 ? "form-control my-2 my-sm-0": "form-control my-1 my-sm-0 p-1"} type="search" placeholder="Buscar" aria-label="Search"
         onChange= {handleInputChange} 
         />
     <button type='submit' onClick={(e) => handleSubmit(e)}
-    class="btn btn-primary" >Buscar</button>
+    class={width>768?"btn btn-primary": "btn btn-primary btn-sm"} >Buscar</button>
     {/* <button type='submit' onClick={(e) => cleanState(e)}
     class="btn btn-primary" >Limpiar</button> */}
      </form> 

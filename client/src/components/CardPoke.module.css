@@ -1,11 +1,4 @@
 .cards{
-    /* display: flex;
-    flex-direction: column;
-    width: 100 px;
-    padding: 20px;
-    margin: 10px;
-    border: 10 px; */
-    height: 358px;
     overflow: hidden;
     padding-inline-start: 0;
     display: grid;
